@@ -1,0 +1,18 @@
+@import "~src/scss/variables";
+
+.pokemon-card {
+
+    .pokemon-name {
+        color: $black;
+    }
+
+    p {
+        color: $black;
+    }
+
+    ul {
+        li {
+            color: $black;
+        }
+    }
+}

@@ -1,0 +1,65 @@
+/*
+    Grid Start
+*/
+
+.container {
+    max-width: 1100px;
+    padding: 0 16px;
+}
+
+.columns {
+    margin: 0;
+
+    &:last-child {
+        margin: 0;
+        margin-bottom: 0;
+    }
+
+    &.has-negative-margin {
+        margin-left: -16px;
+        margin-right: -16px;
+    }
+    .column {
+        padding-left: 16px;
+        padding-right: 16px;
+
+        &.is-paddingless-vertical {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    }
+}
+
+/*
+    Grid finish
+*/
+
+
+/*
+   Spacement start
+*/
+
+section {
+    padding: 60px 0;
+    @media (max-width: 768px) {
+        padding: 30px 0;
+    }
+    &.no-margin {
+        margin-top: unset;
+        margin-bottom: unset;
+    }
+    &.no-padding {
+        padding-top: unset;
+        padding-bottom: unset;
+    }
+    &.subtitle {
+        margin-top: 16px;
+    }
+    &.description {
+        margin-top: 32px;
+    }
+}
+
+/*
+   Spacement finish
+*/

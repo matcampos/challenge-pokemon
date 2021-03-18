@@ -1,0 +1,15 @@
+<div class="pokemon-card">
+    <a [title]="pokemon.name" [routerLink]="['/details', pokemon.id]">
+        <img [src]="pokemon.image.small" [alt]="pokemon.name">
+        <h3 class="pokemon-name">
+            Nome: {{pokemon.name}}
+        </h3>
+        <p>Id: {{pokemon.id}}</p>
+        <p *ngIf="pokemon?.types?.length > 0">Tipos:</p>
+        <ul *ngIf="pokemon?.types?.length > 0">
+            <li *ngFor="let type of pokemon.types">
+                {{type}}
+            </li>
+        </ul>
+    </a>
+</div>

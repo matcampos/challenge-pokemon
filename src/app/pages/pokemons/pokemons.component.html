@@ -1,0 +1,30 @@
+<section>
+    <article>
+        <div class="container">
+            <div class="columns">
+                <div class="column is-12">
+                    <form [formGroup]="searchForm">
+                        <div class="field">
+                            <label class="label">Nome</label>
+                            <div class="control">
+                                <input #searchInput class="input" type="text" formControlName="name"
+                                    placeholder="Pesquise o nome do pokemon">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="columns is-flex-wrap-wrap" infiniteScroll [infiniteScrollDistance]="2"
+                [infiniteScrollThrottle]="20" (scrolled)="onScroll()">
+                <div class="column is-3" *ngFor="let pokemon of pokemons">
+                    <app-pokemon-card [pokemon]="pokemon"></app-pokemon-card>
+                </div>
+            </div>
+            <div class="columns" *ngIf="loading">
+                <div class="column is-6 is-offset-3">
+                    <progress class="progress is-large is-dark" max="100">60%</progress>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
