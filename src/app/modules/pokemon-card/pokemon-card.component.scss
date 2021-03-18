@@ -1,18 +1,65 @@
 @import "~src/scss/variables";
 
-.pokemon-card {
+.card {
+    height: 100%;
+    box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 40%), 0 0px 0 1px rgb(10 10 10 / 20%);
+    transition: transform 0.3s ease-in-out;
+    border-radius: 15px;
 
-    .pokemon-name {
-        color: $black;
+    &:hover {
+        @media (min-width: 992px) {
+            transform: scale(1.05);
+        }
     }
 
-    p {
-        color: $black;
-    }
+    a {
+        height: 100%;
+        display: block;
+        .card-image {
+            position: relative;
+            padding: 20px 0;
 
-    ul {
-        li {
+            .image {
+                img {
+                    object-fit: contain;
+                    z-index: 2;
+                }
+            }
+
+            .bluredImage {
+                position: absolute;
+                width: 100%;
+                height: calc(100% + 40px);
+                top: -20px;
+                left: 0;
+                opacity: 0.4;
+                z-index: 1;
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+        }
+
+        .pokemon-name {
+            color: #48009bb3;
+            text-align: center;
+        }
+
+        .pokemon-id {
+            color: #8a8a8a;
+            text-align: center;
+        }
+
+        p {
             color: $black;
+        }
+
+        .card-types {
+            color: #8a8a8a;
+            text-align: center;
+        }
+
+        .tags {
+            justify-content: center;
         }
     }
 }

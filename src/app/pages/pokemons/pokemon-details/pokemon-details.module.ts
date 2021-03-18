@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PokemonDetailsComponent } from './pokemon-details.component';
 import { PokemonDetailsRoutingModule } from './pokemon-details-routing.module';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -9,7 +10,8 @@ import { PokemonDetailsRoutingModule } from './pokemon-details-routing.module';
   declarations: [PokemonDetailsComponent],
   imports: [
     CommonModule,
-    PokemonDetailsRoutingModule
+    PokemonDetailsRoutingModule,
+    RouterModule
   ]
 })
 export class PokemonDetailsModule { }

@@ -1,0 +1,11 @@
+.modal {
+    .modal-content {
+        max-width: 80%;
+
+        .media-content {
+            @media (max-width: 768px) {
+                overflow-x: unset;
+            }
+        }
+    }
+}

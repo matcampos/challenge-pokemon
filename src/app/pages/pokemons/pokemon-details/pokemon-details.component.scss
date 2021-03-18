@@ -1,0 +1,45 @@
+section {
+    .breadcrumb {
+        li {
+            a {
+                color: #cbcbcb;
+            }
+            &.is-active {
+                a {
+                    font-weight: 600;
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    .tile {
+        &.is-horizontal {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .title {
+            margin-top: 10px;
+            font-size: 20px;
+            color: #48009bb3;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #8a8a8a;
+            font-weight: 500;
+        }
+
+        &.is-12-mobile {
+            @media (max-width: 768px) {
+                width: 100%;
+                flex: 0 0 100%;
+            }
+        }
+    }
+
+    .button + .sub-title {
+        margin-top: 20px;
+    }
+}

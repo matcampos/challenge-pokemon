@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppInterceptor } from './app.interceptor';
+import { ModalModule } from './modules/modal/modal.module';
 
 @NgModule({
     declarations: [
@@ -13,7 +14,8 @@ import { AppInterceptor } from './app.interceptor';
     imports: [
         BrowserModule,
         AppRoutingModule,
-        HttpClientModule
+        HttpClientModule,
+        ModalModule
     ],
     providers: [
         {

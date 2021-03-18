@@ -5,7 +5,7 @@
                 <div class="column is-12">
                     <form [formGroup]="searchForm">
                         <div class="field">
-                            <label class="label">Nome</label>
+                            <label class="label has-text-white">Nome</label>
                             <div class="control">
                                 <input #searchInput class="input" type="text" formControlName="name"
                                     placeholder="Pesquise o nome do pokemon">
@@ -14,15 +14,28 @@
                     </form>
                 </div>
             </div>
-            <div class="columns is-flex-wrap-wrap" infiniteScroll [infiniteScrollDistance]="2"
-                [infiniteScrollThrottle]="20" (scrolled)="onScroll()">
-                <div class="column is-3" *ngFor="let pokemon of pokemons">
+            <div class="columns is-flex-wrap-wrap is-hidden-mobile" infiniteScroll [infiniteScrollDistance]="2"
+                [infiniteScrollThrottle]="20" [infiniteScrollDisabled]="infiniteScrollDisabled" (scrolled)="onScroll()">
+                <div class="column is-3-desktop is-6-tablet" *ngFor="let pokemon of pokemons">
                     <app-pokemon-card [pokemon]="pokemon"></app-pokemon-card>
                 </div>
             </div>
-            <div class="columns" *ngIf="loading">
+            <div class="columns is-hidden-tablet" *ngIf="pokemons.length > 0">
+                <div class="column is-full is-mobile is-carrousel">
+                    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig"
+                        (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
+                        (beforeChange)="beforeChange($event)">
+                        <div ngxSlickItem *ngFor="let pokemon of pokemons" class="slide is-full-mobile">
+                            <app-pokemon-card [pokemon]="pokemon"></app-pokemon-card>
+                        </div>
+                    </ngx-slick-carousel>
+                </div>
+            </div>
+            <div class="columns loader-box" *ngIf="loading">
                 <div class="column is-6 is-offset-3">
-                    <progress class="progress is-large is-dark" max="100">60%</progress>
+                    <div class="loader-wrapper is-active" [class.is-active]="loading">
+                        <div class="loader is-loading"></div>
+                    </div>
                 </div>
             </div>
         </div>

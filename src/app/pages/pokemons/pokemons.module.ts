@@ -5,6 +5,7 @@ import { PokemonsRoutingModule } from './pokemons-routing.module';
 import { PokemonCardModule } from 'src/app/modules';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 @NgModule({
     declarations: [PokemonsComponent],
@@ -14,7 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         PokemonCardModule,
         InfiniteScrollModule,
         ReactiveFormsModule,
-        FormsModule
+        FormsModule,
+        SlickCarouselModule
     ]
 })
 export class PokemonsModule { }

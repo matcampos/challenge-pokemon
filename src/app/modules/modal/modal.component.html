@@ -1,0 +1,26 @@
+<div class="modal is-active">
+    <div class="modal-background" (click)="close()"></div>
+    <div class="modal-content">
+        <div class="box">
+            <article class="media">
+                <div class="media-content">
+                    <div class="tile is-ancestor">
+                        <div class="tile is-vertical is-12">
+                            <div class="tile">
+                                <div class="tile is-parent is-vertical">
+                                    <article class="tile is-child notification is-info" *ngFor="let attack of pokemon?.attacks">
+                                        <p class="title">{{attack.name}}</p>
+                                        <p class="subtitle">Custo de mana: {{attack.cost}}</p>
+                                        <p class="subtitle">Dano: {{attack.damage}}</p>
+                                        <p class="subtitle">Descrição: {{attack.text}}</p>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+    <button class="modal-close is-large" aria-label="close" (click)="close()"></button>
+</div>

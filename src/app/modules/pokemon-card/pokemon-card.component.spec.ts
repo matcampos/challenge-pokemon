@@ -1,4 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterModule } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+import { Pokemon } from 'src/app/models';
 
 import { PokemonCardComponent } from './pokemon-card.component';
 
@@ -8,7 +11,8 @@ describe('PokemonCardComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [PokemonCardComponent]
+            declarations: [PokemonCardComponent],
+            imports: [RouterTestingModule]
         })
             .compileComponents();
     }));
@@ -16,6 +20,15 @@ describe('PokemonCardComponent', () => {
     beforeEach(() => {
         fixture = TestBed.createComponent(PokemonCardComponent);
         component = fixture.componentInstance;
+        component.pokemon = new Pokemon({
+            name: 'pokemon teste',
+            image: {
+                small: '',
+                large: ''
+            },
+            id: 'aaaa',
+            types: []
+        });
         fixture.detectChanges();
     });
 

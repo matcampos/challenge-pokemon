@@ -15,8 +15,11 @@ export class PokemonsComponent implements OnInit, AfterViewInit {
     pokemons: any[] = [];
     query: PokemonFilter = new PokemonFilter();
     searchForm: FormGroup;
-    private name: string = '';
+    name: string = '';
     loading: boolean = false;
+    slideConfig = { "slidesToShow": 1, "slidesToScroll": 1, infinite: false };
+    totalCount: number = 0;
+    infiniteScrollDisabled: boolean = false;
 
     constructor(
         private pokemonsService: PokemonsService,
@@ -28,7 +31,12 @@ export class PokemonsComponent implements OnInit, AfterViewInit {
     }
 
     ngOnInit() {
+        if (window.innerWidth < 769) {
+            this.infiniteScrollDisabled = true;
+        }
+    
         this.getPokemons();
+        
     }
 
     ngAfterViewInit() {
@@ -65,7 +73,7 @@ export class PokemonsComponent implements OnInit, AfterViewInit {
 
         try {
             if (newRequest) {
-                this.pokemons = new Array<Pokemon>();
+                this.pokemons = [];
             }
 
             const result = await this.pokemonsService.getPokemons(this.query);
@@ -79,6 +87,8 @@ export class PokemonsComponent implements OnInit, AfterViewInit {
                     })
                 );
             });
+
+            this.totalCount = result.totalCount;
             this.loading = false;
 
         } catch (error) {
@@ -90,5 +100,24 @@ export class PokemonsComponent implements OnInit, AfterViewInit {
     onScroll() {
         this.query.page++;
         this.getPokemons();
+    }
+
+    slickInit(e) {
+        console.log('slick initialized');
+    }
+
+    breakpoint(e) {
+        console.log('breakpoint');
+    }
+
+    afterChange(e) {
+        if ((e.currentSlide + 1) == this.pokemons.length && this.totalCount > this.pokemons.length) {
+            this.query.page++;
+            this.getPokemons();
+        }
+    }
+
+    beforeChange(e) {
+        console.log('beforeChange');
     }
 }

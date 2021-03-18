@@ -2,9 +2,17 @@ export class Pokemon {
     name: string;
     image: PokemonImage;
     id: string;
-    types: any[];
+    types: string[] = [];
+    resistances: any[] = [];
+    weaknesses: Weaks[] = [];
+    attacks: Attacks[] = [];
 
     constructor(init?: Partial<Pokemon>) {
+        Object.keys(init).forEach(key => {
+            if (!init[key] || init[key] == null || init[key] == '') {
+                delete init[key];
+            }
+        })
         Object.assign(this, init);
     }
 }
@@ -20,6 +28,15 @@ export class PokemonFilter {
     }
 }
 
+export class PokemonByIdResponse {
+    data: PokemonResponse;
+
+
+    constructor(init?: Partial<PokemonByIdResponse>) {
+        Object.assign(this, init);
+    }
+}
+
 export class PokemonResponse {
     id: string;
     name: string;
@@ -29,8 +46,8 @@ export class PokemonResponse {
     hp: string;
     types: string[];
     evolvesFrom: string[];
-    abilities: Ablities[];
-    attacks: Atacks[];
+    abilities: Abilities[];
+    attacks: Attacks[];
     weaknesses: Weaks[];
     resistances: Resistances[];
     retreatCost: string[];
@@ -49,27 +66,27 @@ export class PokemonResponse {
     }
 }
 
-class Ablities {
+export class Abilities {
     name: string;
     text: string;
     type: string;
-    constructor(init?: Partial<Ablities>) {
+    constructor(init?: Partial<Abilities>) {
         Object.assign(this, init);
     }
 }
 
-class Atacks {
+export class Attacks {
     name: string;
     cost: string[];
     convertedEnergyCost: number;
     damage: string;
     text: string;
-    constructor(init?: Partial<Atacks>) {
+    constructor(init?: Partial<Attacks>) {
         Object.assign(this, init);
     }
 }
 
-class Weaks {
+export class Weaks {
     type: string;
     value: string;
 
@@ -79,7 +96,7 @@ class Weaks {
 }
 
 
-class Resistances {
+export class Resistances {
     type: string;
     value: string;
 
@@ -88,7 +105,7 @@ class Resistances {
     }
 }
 
-class Set {
+export class Set {
     id: string;
     name: string;
     series: string;
@@ -108,7 +125,7 @@ class Set {
     }
 }
 
-class Legality {
+export class Legality {
     inlimited: string;
 
     constructor(init?: Partial<Legality>) {
@@ -116,7 +133,7 @@ class Legality {
     }
 }
 
-class Image {
+export class Image {
     symbol: string;
     logo: string
 
@@ -125,7 +142,7 @@ class Image {
     }
 }
 
-class PokemonImage {
+export class PokemonImage {
     small: string;
     large: string
 
@@ -134,7 +151,7 @@ class PokemonImage {
     }
 }
 
-class TgcPlayer {
+export class TgcPlayer {
     url: string;
     updatedAt: Date;
     prices: Prices;
@@ -144,7 +161,7 @@ class TgcPlayer {
     }
 }
 
-class Prices {
+export class Prices {
     holofoil: Holofoil;
     reverseHolofoil: ReverseHolofoil;
 
@@ -153,7 +170,7 @@ class Prices {
     }
 }
 
-class Holofoil {
+export class Holofoil {
     low: number;
     mid: number;
     high: number;
@@ -165,7 +182,7 @@ class Holofoil {
     }
 }
 
-class ReverseHolofoil {
+export class ReverseHolofoil {
     low: number;
     mid: number;
     high: number;
@@ -183,4 +200,8 @@ export class PokemonResponseList {
     pageSize: number;
     count: number;
     totalCount: number;
+
+    constructor(init?: Partial<PokemonResponseList>) {
+        Object.assign(this, init);
+    }
 }

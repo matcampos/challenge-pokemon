@@ -1,15 +1,29 @@
-<div class="pokemon-card">
+<div class="card">
     <a [title]="pokemon.name" [routerLink]="['/details', pokemon.id]">
-        <img [src]="pokemon.image.small" [alt]="pokemon.name">
-        <h3 class="pokemon-name">
-            Nome: {{pokemon.name}}
-        </h3>
-        <p>Id: {{pokemon.id}}</p>
-        <p *ngIf="pokemon?.types?.length > 0">Tipos:</p>
-        <ul *ngIf="pokemon?.types?.length > 0">
-            <li *ngFor="let type of pokemon.types">
-                {{type}}
-            </li>
-        </ul>
+        <div class="card-image">
+            <figure class="image is-4by3">
+                <img [src]="pokemon.image.small" [alt]="pokemon.name">
+                <div class="bluredImage" [style.backgroundImage]="'url(' + pokemon.image.small + ')'"></div>
+            </figure>
+        </div>
+        <div class="card-content">
+            <div class="media">
+                <div class="media-content">
+                    <p class="title is-4 pokemon-name">{{pokemon.name}}</p>
+                    <p class="sub-title is-6 pokemon-id">Id: {{pokemon.id}}</p>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="media">
+                    <div class="media-content">
+                        <p class="sub-title card-types" *ngIf="pokemon?.types?.length > 0">Tipos:</p>
+                        <div class="tags are-medium">
+                            <span class="tag is-success" *ngFor="let type of pokemon.types">{{type}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </a>
 </div>
