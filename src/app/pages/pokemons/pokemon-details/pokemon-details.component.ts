@@ -40,7 +40,7 @@ export class PokemonDetailsComponent implements OnInit {
                 id: pokemon.data.id,
                 types: pokemon.data.types,
                 weaknesses: pokemon.data.weaknesses,
-                resistances: [],
+                resistances: pokemon.data.resistances,
                 attacks: pokemon.data.attacks
             });
         } catch (error) {

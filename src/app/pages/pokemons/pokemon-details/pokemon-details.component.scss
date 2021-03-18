@@ -1,13 +1,15 @@
+@import "~src/scss/variables";
+
 section {
     .breadcrumb {
         li {
             a {
-                color: #cbcbcb;
+                color: $grey-1;
             }
             &.is-active {
                 a {
                     font-weight: 600;
-                    color: #fff;
+                    color: $white;
                 }
             }
         }
@@ -22,12 +24,12 @@ section {
         .title {
             margin-top: 10px;
             font-size: 20px;
-            color: #48009bb3;
+            color: $purple;
         }
 
         .subtitle {
             font-size: 18px;
-            color: #8a8a8a;
+            color: $grey-2;
             font-weight: 500;
         }
 

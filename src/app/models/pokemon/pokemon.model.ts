@@ -3,7 +3,7 @@ export class Pokemon {
     image: PokemonImage;
     id: string;
     types: string[] = [];
-    resistances: any[] = [];
+    resistances: Resistances[] = [];
     weaknesses: Weaks[] = [];
     attacks: Attacks[] = [];
 

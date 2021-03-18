@@ -1,9 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'bulma/css/bulma.css';
-@import './scss/styleguide';
+@import '~src/scss/styleguide';
+@import "~src/scss/variables";
 
 body {
-    background-color: #48009bb3;
+    background-color: $purple;
     min-height: 100vh;
 
     &.no-scroll {
