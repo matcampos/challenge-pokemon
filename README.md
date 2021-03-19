@@ -147,7 +147,6 @@ Segue [link](https://www.codeinwp.com/blog/bootstrap-vs-foundation-vs-bulma-vs-s
 * [ngx-infinite-scroll](https://www.npmjs.com/package/ngx-infinite-scroll) - Biblioteca para utilizar funcionalidade de infinite-scroll no angular.
 * [@ngx-translate/core](https://www.npmjs.com/package/@ngx-translate/core) - Biblioteca utilizada para internacionalização do site.
 * [@ngx-translate/http-loader](https://www.npmjs.com/package/@ngx-translate/http-loader) - Dependência do `@ngx-translate/core`.
-* [@ngx-translate/http-loader](https://www.npmjs.com/package/@ngx-translate/http-loader) - Dependência do `@ngx-translate/core`.
 * [ngx-slick-carousel](https://www.npmjs.com/package/ngx-slick-carousel) - Biblioteca para utilização do carousel no layout mobile da página principal.
 * [jquery](https://www.npmjs.com/package/jquery) - Dependência do `ngx-slick-carousel`.
 * [slick-carousel](https://www.npmjs.com/package/slick-carousel) - Dependência do `ngx-slick-carousel`.
