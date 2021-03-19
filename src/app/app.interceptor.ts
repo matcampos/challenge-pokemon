@@ -7,6 +7,7 @@ import {
     HttpHandler,
     HttpRequest
 } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class AppInterceptor implements HttpInterceptor {
@@ -17,6 +18,13 @@ export class AppInterceptor implements HttpInterceptor {
         request: HttpRequest<any>,
         next: HttpHandler
     ): Observable<HttpEvent<any>> {
+
+        request = request.clone({
+            setHeaders: {
+                'X-Api-Key': environment.API_KEY
+            }
+        })
+
         return next.handle(request)
             .pipe(retry(2));
     }

@@ -7,6 +7,16 @@ describe('workspace-project App', () => {
         beforeEach(() => {
                 page = new AppPage();
         });
+
+        it ('should change language to portuguese', () => {
+            page.navigateTo();
+            expect(page.changeLanguage('portugueseLanguage')).toEqual('Português');
+        });
+
+        it ('should change language to english', () => {
+            page.navigateTo();
+            expect(page.changeLanguage('englishLanguage')).toEqual('English');
+        })
         
         afterEach(async () => {
                 // Assert that there are no errors emitted from the browser

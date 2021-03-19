@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Run",
+            "program": "${workspaceRoot}/node_modules/protractor/bin/protractor",
+            "protocol": "inspector",
+            "args": [
+                "${workspaceRoot}/e2e/protractor.conf.js",
+            ],
+            "port": 4201,
+            "console": "integratedTerminal"
+        },
+    ]
+}
