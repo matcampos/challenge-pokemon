@@ -1,7 +1,8 @@
 import { Injectable, ApplicationRef, Injector, ComponentFactoryResolver, EmbeddedViewRef, Inject } from '@angular/core';
 import { ModalComponent } from 'src/app/modules/modal/modal.component';
 import { DOCUMENT } from '@angular/common';
-import { Pokemon } from 'src/app/models';
+import { ErrorModel, Pokemon } from 'src/app/models';
+import { Router } from '@angular/router';
 
 @Injectable({
     providedIn: 'root'
@@ -12,10 +13,11 @@ export class ModalService {
         private componentFactoryResolver: ComponentFactoryResolver,
         private appRef: ApplicationRef,
         private injector: Injector,
-        @Inject(DOCUMENT) private document: Document
+        @Inject(DOCUMENT) private document: Document,
+        private router: Router
     ) { }
 
-    openModal(modalInfos: Pokemon) {
+    openModal<T = any>(modalInfos: T) {
 
         const modal = this.document.querySelector('app-modal')
 
@@ -25,8 +27,18 @@ export class ModalService {
                 .resolveComponentFactory(ModalComponent)
                 .create(this.injector);
 
+            // Realizing the type
+            let type;
+
+            if (modalInfos instanceof ErrorModel) {
+                type = 'error'
+            } else if (modalInfos instanceof Pokemon) {
+                type = 'pokemon'
+            }
+
             // Component Inputs
-            componentRef.instance.pokemon = modalInfos;
+            componentRef.instance.modalInfos = modalInfos;
+            componentRef.instance.type = type;
 
             // 2. Attach component to the appRef so that it's inside the ng component tree
             this.appRef.attachView(componentRef.hostView);
@@ -41,6 +53,10 @@ export class ModalService {
 
             componentRef.instance.closeModal.subscribe((evt) => {
                 this.appRef.detachView(componentRef.hostView)
+                if (evt.routerLink) {
+                    this.router.navigate([evt.routerLink])
+                }
+
                 if (this.document.body.classList.contains('no-scroll')) {
                     this.document.body.classList.remove('no-scroll');
                     window.scrollTo(0, evt.scrollPosition)

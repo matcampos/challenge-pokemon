@@ -4,6 +4,7 @@ import { ModalComponent } from './modal.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpLoaderFactory } from 'src/app/utils/http-loader-factory';
 import { HttpClient } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -19,7 +20,8 @@ import { HttpClient } from '@angular/common/http';
                 deps: [HttpClient]
               },
             isolate: false
-        })
+        }),
+        RouterModule
     ],
     exports: [ModalComponent]
 })

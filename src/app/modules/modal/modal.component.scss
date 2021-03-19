@@ -1,3 +1,5 @@
+@import "~src/scss/variables";
+
 .modal {
     .modal-content {
         max-width: 80%;
@@ -5,6 +7,31 @@
         .media-content {
             @media (max-width: 768px) {
                 overflow-x: unset;
+            }
+        }
+
+        .error-content {
+            padding: 30px;
+            @media (max-width: 768px) {
+                padding: 0;
+            }
+
+            img {
+                margin: 0 auto;
+                width: 200px;
+                display: block;
+            }
+
+            .title {
+                margin-top: 20px;
+                font-size: 20px;
+                text-align: center;
+                color: $grey-2;
+            }
+
+            a.button {
+                display: table;
+                margin: 40px auto 0 auto;
             }
         }
     }

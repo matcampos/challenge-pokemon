@@ -4,12 +4,13 @@
         <div class="box">
             <article class="media">
                 <div class="media-content">
-                    <div class="tile is-ancestor">
+                    <!-- Pokemon content -->
+                    <div class="tile is-ancestor" *ngIf="type == 'pokemon'" [ngClass]="type">
                         <div class="tile is-vertical is-12">
                             <div class="tile">
                                 <div class="tile is-parent is-vertical">
                                     <article class="tile is-child notification is-info"
-                                        *ngFor="let attack of pokemon?.attacks">
+                                        *ngFor="let attack of modalInfos?.attacks">
                                         <p class="title">{{attack.name}}</p>
                                         <p class="subtitle">{{'pokemonDetailsComponent.MANA_COST' | translate}}:
                                             {{attack.cost}}</p>
@@ -21,6 +22,31 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <!-- Pokemon content finish -->
+
+                    <div class="error-content" *ngIf="type == 'error'" [ngClass]="type">
+
+                        <img *ngIf="modalInfos?.image" [src]="modalInfos?.image?.path" [alt]="modalInfos?.image?.alt">
+
+                        <p *ngIf="modalInfos?.message" class="title">
+                            {{modalInfos?.message}}
+                        </p>
+
+                        <!-- Button with routerLink -->
+                        <a [ngClass]="[modalInfos?.button?.class]" (click)="close()" [title]="modalInfos?.button?.title"
+                            *ngIf="modalInfos?.button && modalInfos?.button?.routerLink">
+                            {{modalInfos?.button?.text}}
+                        </a>
+                        <!-- Button with routerLink finish -->
+
+                        <!-- Button with href -->
+                        <a [ngClass]="[modalInfos?.button?.class]" [href]="modalInfos?.button?.href"
+                            [title]="modalInfos?.button?.title" [target]="modalInfos?.button?.target"
+                            *ngIf="modalInfos?.button && modalInfos?.button?.href">
+                            {{modalInfos?.button?.text}}
+                        </a>
+                        <!-- Button with href finish -->
                     </div>
                 </div>
             </article>

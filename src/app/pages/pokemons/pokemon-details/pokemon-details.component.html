@@ -7,7 +7,8 @@
                         <a title="Home" routerLink="/">Home</a>
                     </li>
                     <li class="is-active">
-                        <a [title]="'pokemonDetailsComponent.BREADCRUMB' | translate" [routerLink]="['/details', pokemon?.id]">{{'pokemonDetailsComponent.BREADCRUMB' |
+                        <a [title]="'pokemonDetailsComponent.BREADCRUMB' | translate"
+                            [routerLink]="['/details', pokemon?.id]">{{'pokemonDetailsComponent.BREADCRUMB' |
                             translate}}</a>
                     </li>
                 </ul>
@@ -28,8 +29,10 @@
 
                             <div class="tile is-parent is-6-tablet is-white is-12-mobile is-paddingless">
                                 <article class="tile is-child notification is-white is-paddingless">
-                                    <p class="title">{{'pokemonDetailsComponent.POKEMON_NAME_LABEL' | translate}}: {{pokemon?.name}}</p>
-                                    <p class="subtitle is-marginless">{{'pokemonDetailsComponent.POKEMON_ID_LABEL' | translate}}: {{pokemon?.id}}</p>
+                                    <p class="title">{{'pokemonDetailsComponent.POKEMON_NAME_LABEL' | translate}}:
+                                        {{pokemon?.name}}</p>
+                                    <p class="subtitle is-marginless">{{'pokemonDetailsComponent.POKEMON_ID_LABEL' |
+                                        translate}}: {{pokemon?.id}}</p>
                                 </article>
                             </div>
                         </article>
@@ -39,7 +42,8 @@
                     <div class="tile is-parent is-full">
                         <article class="tile is-child notification is-white">
                             <p class="title">{{'pokemonDetailsComponent.POKEMON_TYPES_LABEL' | translate}}</p>
-                            <p class="sub-title" *ngIf="pokemon?.types?.length == 0">{{'pokemonDetailsComponent.NO_TYPE_REGISTERED' | translate}}</p>
+                            <p class="sub-title" *ngIf="pokemon?.types?.length == 0">
+                                {{'pokemonDetailsComponent.NO_TYPE_REGISTERED' | translate}}</p>
                             <div class="tags are-medium">
                                 <span class="tag is-success" *ngFor="let type of pokemon.types">{{type}}</span>
                             </div>
@@ -48,7 +52,8 @@
                     <div class="tile is-parent is-full">
                         <article class="tile is-child notification is-white">
                             <p class="title">{{'pokemonDetailsComponent.POKEMON_RESISTANCES_LABEL' | translate}}</p>
-                            <p class="sub-title" *ngIf="pokemon?.resistances?.length == 0">{{'pokemonDetailsComponent.NO_RESISTANCE_REGISTERED' | translate}}</p>
+                            <p class="sub-title" *ngIf="pokemon?.resistances?.length == 0">
+                                {{'pokemonDetailsComponent.NO_RESISTANCE_REGISTERED' | translate}}</p>
                             <div class="tags are-medium">
                                 <span class="tag is-success"
                                     *ngFor="let resistance of pokemon?.resistances">{{resistance.type}}</span>
@@ -58,10 +63,13 @@
                     <div class="tile is-parent is-full">
                         <article class="tile is-child notification is-white">
                             <a class="button is-info is-medium" id="openModalButton"
-                                [class.disabled]="pokemon?.attacks?.length == 0" [title]="'pokemonDetailsComponent.POKEMON_SEE_ATTACKS_BUTTON_TEXT' | translate"
-                                (click)="openModal()">{{'pokemonDetailsComponent.POKEMON_SEE_ATTACKS_BUTTON_TEXT' | translate}}</a>
+                                [class.disabled]="pokemon?.attacks?.length == 0"
+                                [title]="'pokemonDetailsComponent.POKEMON_SEE_ATTACKS_BUTTON_TEXT' | translate"
+                                (click)="openModal()">{{'pokemonDetailsComponent.POKEMON_SEE_ATTACKS_BUTTON_TEXT' |
+                                translate}}</a>
 
-                            <p class="sub-title" *ngIf="pokemon?.types?.length == 0">{{'pokemonDetailsComponent.NO_ATTACK_REGISTERED' | translate}}</p>
+                            <p class="sub-title" *ngIf="pokemon?.types?.length == 0">
+                                {{'pokemonDetailsComponent.NO_ATTACK_REGISTERED' | translate}}</p>
                         </article>
                     </div>
                 </div>
@@ -69,9 +77,19 @@
 
             <div class="columns has-negative-margin">
                 <div class="column">
-                    <a class="button is-link is-medium" [title]="'pokemonDetailsComponent.BACK_BUTTON' | translate" routerLink="/" id="backButton">{{'pokemonDetailsComponent.BACK_BUTTON' | translate}}</a>
+                    <a class="button is-link is-medium" [title]="'pokemonDetailsComponent.BACK_BUTTON' | translate"
+                        routerLink="/" id="backButton">{{'pokemonDetailsComponent.BACK_BUTTON' | translate}}</a>
                 </div>
             </div>
+            <!-- Loader Wrapper -->
+            <div class="columns loader-box fixed" *ngIf="loading">
+                <div class="column is-6 is-offset-3">
+                    <div class="loader-wrapper is-active" [class.is-active]="loading">
+                        <div class="loader is-loading"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Loader Wrapper finish -->
         </div>
     </article>
 </section>

@@ -18,7 +18,9 @@
         "NO_TYPE_REGISTERED": "No type registered...",
         "MANA_COST": "Mana cost",
         "DAMAGE": "Damage",
-        "DESCRIPTION": "Description"
+        "DESCRIPTION": "Description",
+        "NOT_FOUND_ERROR": "We coudn't found a pokemon with this Id, please return to the main page.",
+        "ERROR_BUTTON_TEXT": "Back"
     },
     "appComponent": {
         "PORTUGUESE_LANGUAGE": "Portuguese",

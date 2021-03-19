@@ -1,7 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, EventEmitter, Inject, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { Pokemon } from 'src/app/models';
+import { ErrorModel } from 'src/app/models';
 import { getLanguage } from 'src/app/utils/get-browser-language';
 
 @Component({
@@ -9,9 +9,10 @@ import { getLanguage } from 'src/app/utils/get-browser-language';
     templateUrl: './modal.component.html',
     styleUrls: ['./modal.component.scss']
 })
-export class ModalComponent implements OnInit, OnDestroy {
-    @Input() pokemon: Pokemon;
-    @Output() closeModal: EventEmitter<{ scrollPosition: number }> = new EventEmitter<{ scrollPosition: number }>();
+export class ModalComponent<T = any> implements OnInit, OnDestroy {
+    @Input() modalInfos: T;
+    @Input() type: 'pokemon' | 'error';
+    @Output() closeModal: EventEmitter<{ scrollPosition: number, routerLink: string }> = new EventEmitter<{ scrollPosition: number, routerLink: string }>();
     scrollPosition: number = 0;
 
     constructor(
@@ -29,8 +30,16 @@ export class ModalComponent implements OnInit, OnDestroy {
     }
 
     close() {
+        let route;
+
+        if (this.modalInfos instanceof ErrorModel) {
+            if (this.modalInfos.button && this.modalInfos.button.routerLink) {
+                route = this.modalInfos.button.routerLink;
+            }
+        }
         this.closeModal.emit({
-            scrollPosition: this.scrollPosition
+            scrollPosition: this.scrollPosition,
+            routerLink: route
         })
     }
 

@@ -18,7 +18,9 @@
         "NO_TYPE_REGISTERED": "Nenhum tipo cadastrado...",
         "MANA_COST": "Custo de mana",
         "DAMAGE": "Dano",
-        "DESCRIPTION": "Descrição"
+        "DESCRIPTION": "Descrição",
+        "NOT_FOUND_ERROR": "Não encontramos um pokemon com este id, por favor volte para a página príncipal.",
+        "ERROR_BUTTON_TEXT": "Voltar"
     },
     "appComponent": {
         "PORTUGUESE_LANGUAGE": "Português",
