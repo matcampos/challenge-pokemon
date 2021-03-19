@@ -18,5 +18,9 @@
         "MANA_COST": "Mana cost",
         "DAMAGE": "Damage",
         "DESCRIPTION": "Description"
+    },
+    "appComponent": {
+        "PORTUGUESE_LANGUAGE": "Portuguese",
+        "ENGLISH_LANGUAGE": "English"
     }
 }

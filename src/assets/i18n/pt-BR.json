@@ -18,5 +18,9 @@
         "MANA_COST": "Custo de mana",
         "DAMAGE": "Dano",
         "DESCRIPTION": "Descrição"
+    },
+    "appComponent": {
+        "PORTUGUESE_LANGUAGE": "Português",
+        "ENGLISH_LANGUAGE": "Inglês"
     }
 }

@@ -5,13 +5,13 @@
                 <div class="column">
                     <ul class="languages is-pulled-right">
                         <li>
-                            <a (click)="setLanguage('pt-BR')" title="Português" [class.disabled]="language != 'pt-BR' && language != 'pt'">
-                                <img src="assets/images/BR.png" alt="Português">
+                            <a (click)="setLanguage('pt-BR')" [title]="'appComponent.PORTUGUESE_LANGUAGE' | translate" [class.disabled]="language != 'pt-BR' && language != 'pt'">
+                                <img src="assets/images/BR.png" [alt]="'appComponent.PORTUGUESE_LANGUAGE' | translate">
                             </a>
                         </li>
                         <li>
-                            <a (click)="setLanguage('en-US')" title="Inglês" [class.disabled]="language != 'en-US' && language != 'en'">
-                                <img src="assets/images/USA.png" alt="Inglês">
+                            <a (click)="setLanguage('en-US')" [title]="'appComponent.ENGLISH_LANGUAGE' | translate" [class.disabled]="language != 'en-US' && language != 'en'">
+                                <img src="assets/images/USA.png" [alt]="'appComponent.ENGLISH_LANGUAGE' | translate">
                             </a>
                         </li>
                     </ul>
