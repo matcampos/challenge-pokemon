@@ -8,33 +8,46 @@ import { PokemonByIdResponse, PokemonFilter, PokemonResponse, PokemonResponseLis
 
 describe('PokemonsService', () => {
     let httpMock: HttpTestingController;
-    let service: PokemonsService;
+    let service: jasmine.SpyObj<PokemonsService>;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
             imports: [
                 HttpClientTestingModule
             ],
+            providers: [
+                {
+                    provide: PokemonsService,
+                    useValue: jasmine.createSpyObj<PokemonsService>('PokemonsService', ['getPokemons', 'getPokemonById'])
+                }
+            ]
         });
 
         httpMock = TestBed.get(HttpTestingController);
         service = TestBed.get(PokemonsService);
+
+        service.getPokemons.and.returnValue(new Promise((resolve) => resolve(new PokemonResponseList(
+        ))))
+
+        service.getPokemonById.and.returnValue(new Promise((resolve) => resolve(new PokemonByIdResponse())))
+
+        
     });
 
     it('get pokemons', async () => {
+
         const filter = new PokemonFilter();
 
-        service.getPokemons(filter).then(pokemons => {
-            expect(pokemons).toBe(new PokemonResponseList());
-        });
+        const result = await service.getPokemons(filter);
 
+        expect(result).toEqual(new PokemonResponseList());
     });
 
     it('get pokemons by id', async () => {
 
-        service.getPokemonById('teste').then(pokemon => {
-            expect(pokemon).toBe(new PokemonByIdResponse());
-        });
+        const result = await service.getPokemonById('teste')
+
+        expect(result).toEqual(new PokemonByIdResponse());
 
     });
 });

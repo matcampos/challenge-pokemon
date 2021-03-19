@@ -1,6 +1,8 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, EventEmitter, Inject, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { Pokemon } from 'src/app/models';
+import { getLanguage } from 'src/app/utils/get-browser-language';
 
 @Component({
     selector: 'app-modal',
@@ -13,8 +15,11 @@ export class ModalComponent implements OnInit, OnDestroy {
     scrollPosition: number = 0;
 
     constructor(
-        @Inject(DOCUMENT) private document: Document
-    ) { }
+        @Inject(DOCUMENT) private document: Document,
+        private translate: TranslateService
+    ) {
+        this.setLanguage();
+    }
 
     ngOnInit() {
         const top = (window.pageYOffset || this.document.documentElement.scrollTop) - (this.document.documentElement.clientTop || 0);
@@ -27,6 +32,12 @@ export class ModalComponent implements OnInit, OnDestroy {
         this.closeModal.emit({
             scrollPosition: this.scrollPosition
         })
+    }
+
+    private setLanguage() {
+        const language = getLanguage();
+        this.translate.setDefaultLang('pt');
+        this.translate.use(language);
     }
 
     ngOnDestroy() {

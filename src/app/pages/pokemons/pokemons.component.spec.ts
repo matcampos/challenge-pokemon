@@ -1,12 +1,13 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
+import { TranslateModule } from '@ngx-translate/core';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
-import {  PokemonResponse, PokemonResponseList } from 'src/app/models';
+import { Pokemon, PokemonResponse, PokemonResponseList } from 'src/app/models';
 import { PokemonCardModule } from 'src/app/modules';
 import { PokemonsService } from 'src/app/services';
-
 import { PokemonsComponent } from './pokemons.component';
 
 describe('PokemonsComponent', () => {
@@ -23,7 +24,9 @@ describe('PokemonsComponent', () => {
                 ReactiveFormsModule,
                 FormsModule,
                 HttpClientTestingModule,
-                SlickCarouselModule
+                SlickCarouselModule,
+                RouterTestingModule,
+                TranslateModule.forRoot(),
             ],
             providers: [{
                 provide: PokemonsService,
@@ -53,7 +56,7 @@ describe('PokemonsComponent', () => {
 
     it('Test api call', () => {
         component.ngOnInit();
-        fixture.detectChanges()
+        fixture.detectChanges();
         expect(mockPokemonsService.getPokemons).toHaveBeenCalled();
     });
 
@@ -106,9 +109,45 @@ describe('PokemonsComponent', () => {
     it('SimulateScollEvent', () => {
         const spy = spyOn(component, 'onScroll');
 
-        window.dispatchEvent(new Event('scroll'));
+        component.onScroll();
 
         expect(spy).toHaveBeenCalled()
     });
+
+    it('test nextArrow', async () => {
+
+        component.ngAfterViewInit();
+        
+        component.pokemons = [
+            new Pokemon({
+                name: 'aaa',
+                image: {
+                    small: '',
+                    large: ''
+                },
+                types: []
+            }),
+            new Pokemon({
+                name: 'aaa',
+                image: {
+                    small: '',
+                    large: ''
+                },
+                types: []
+            })
+        ]
+
+        const spy = spyOn(component, 'afterChange');
+
+        component.totalCount = 10;
+
+        component.afterChange({
+            currentSlide: 1,
+        })
+
+        fixture.detectChanges();
+
+        expect(spy).toHaveBeenCalled()
+    })
 
 });

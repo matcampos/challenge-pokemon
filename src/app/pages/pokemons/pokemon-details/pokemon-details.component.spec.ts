@@ -2,8 +2,9 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
+import { TranslateModule } from '@ngx-translate/core';
 import { of } from 'rxjs';
-import { PokemonByIdResponse, PokemonResponse } from 'src/app/models';
+import { Pokemon, PokemonByIdResponse, PokemonResponse, Resistances } from 'src/app/models';
 import { PokemonsService } from 'src/app/services';
 
 import { PokemonDetailsComponent } from './pokemon-details.component';
@@ -19,6 +20,7 @@ describe('PokemonDetailsComponent', () => {
             imports: [
                 RouterTestingModule,
                 HttpClientTestingModule,
+                TranslateModule.forRoot(),
             ],
             providers: [{
                 provide: PokemonsService,
@@ -27,7 +29,9 @@ describe('PokemonDetailsComponent', () => {
             {
                 provide: ActivatedRoute,
                 useValue: {
-                    params: of({ id: 'aaaa' })
+                    params: of({
+                        id: 'aaaa'
+                    })
                 }
             }],
         })
@@ -37,7 +41,14 @@ describe('PokemonDetailsComponent', () => {
         mockPokemonsService.getPokemonById.and.returnValue(new Promise((resolve) => resolve(new PokemonByIdResponse(
             {
                 data: new PokemonResponse({
-                    id: 'aaa'
+                    id: 'aaa',
+                    name: 'aaaa',
+                    resistances: new Array<Resistances>(
+                        new Resistances({
+                            type: 'aaa',
+                            value: 'aaa'
+                        })
+                    )
                 })
             }
         ))))
@@ -52,4 +63,28 @@ describe('PokemonDetailsComponent', () => {
     it('should create', () => {
         expect(component).toBeTruthy();
     });
+
+
+    it('Test open modal', async(async () => {
+        const spy = spyOn(component, 'openModal');
+
+        const result = await mockPokemonsService.getPokemonById('aaaa');
+
+        component.pokemon = new Pokemon({
+            id: result.data.id,
+            name: result.data.name,
+            attacks: result.data.attacks,
+            image: {
+                small: '',
+                large: ''
+            }
+        })
+
+        let button = fixture.debugElement.nativeElement.querySelector('#openModalButton');
+        button.click();
+        
+        fixture.detectChanges();
+
+        expect(spy).toHaveBeenCalled();
+    }));
 });

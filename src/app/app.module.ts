@@ -3,9 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppInterceptor } from './app.interceptor';
 import { ModalModule } from './modules/modal/modal.module';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { HttpLoaderFactory } from 'src/app/utils/http-loader-factory';
 
 @NgModule({
     declarations: [
@@ -15,7 +17,15 @@ import { ModalModule } from './modules/modal/modal.module';
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
-        ModalModule
+        ModalModule,
+        TranslateModule.forRoot({
+            defaultLanguage: 'pt',
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        })
     ],
     providers: [
         {

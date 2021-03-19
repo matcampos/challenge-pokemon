@@ -100,9 +100,13 @@
                         "styles": [
                             "src/styles.scss"
                         ],
-                        "scripts": [],
+                        "scripts": [
+                            "node_modules/jquery/dist/jquery.min.js",
+                            "node_modules/slick-carousel/slick/slick.min.js"
+                        ],
                         "codeCoverageExclude": [
-                            "src/app/models/**/*.ts"
+                            "src/app/models/**/*.ts",
+                            "src/app/services/**/*.ts"
                         ]
                     }
                 },

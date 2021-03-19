@@ -17,7 +17,7 @@
             <div class="content">
                 <div class="media">
                     <div class="media-content">
-                        <p class="sub-title card-types" *ngIf="pokemon?.types?.length > 0">Tipos:</p>
+                        <p class="sub-title card-types" *ngIf="pokemon?.types?.length > 0">{{'pokemonsComponent.POKEMON_TYPES_LABEL' | translate}}:</p>
                         <div class="tags are-medium">
                             <span class="tag is-success" *ngFor="let type of pokemon.types">{{type}}</span>
                         </div>

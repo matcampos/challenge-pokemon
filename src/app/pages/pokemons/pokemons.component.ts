@@ -1,9 +1,12 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 import { fromEvent } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { Pokemon, PokemonFilter } from 'src/app/models';
 import { PokemonsService } from 'src/app/services';
+import { EventEmitterHelper } from 'src/app/utils/event-emitter';
+import { getLanguage } from 'src/app/utils/get-browser-language';
 
 @Component({
     selector: 'app-pokemons',
@@ -23,24 +26,34 @@ export class PokemonsComponent implements OnInit, AfterViewInit {
 
     constructor(
         private pokemonsService: PokemonsService,
-        private formBuilder: FormBuilder
+        private formBuilder: FormBuilder,
+        private translate: TranslateService
     ) {
         this.searchForm = this.formBuilder.group({
             name: [,]
         });
+        this.setLanguage();
+
+        EventEmitterHelper.get('language').subscribe(_ => this.setLanguage());
     }
 
     ngOnInit() {
         if (window.innerWidth < 769) {
             this.infiniteScrollDisabled = true;
         }
-    
+
         this.getPokemons();
-        
+
     }
 
     ngAfterViewInit() {
         this.addSearchInputEventListener();
+    }
+
+    private setLanguage() {
+        const language = getLanguage();
+        this.translate.setDefaultLang('pt');
+        this.translate.use(language);
     }
 
     addSearchInputEventListener() {

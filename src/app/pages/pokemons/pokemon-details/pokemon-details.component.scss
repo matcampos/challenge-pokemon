@@ -21,6 +21,10 @@ section {
             flex-wrap: wrap;
         }
 
+        &.image-tile {
+            padding: 1.25rem 1.25rem;
+        }
+
         .title {
             margin-top: 10px;
             font-size: 20px;

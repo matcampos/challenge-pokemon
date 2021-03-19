@@ -1,1 +1,23 @@
+<section class="is-marginless is-paddingless">
+    <article>
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <ul class="languages is-pulled-right">
+                        <li>
+                            <a (click)="setLanguage('pt-BR')" title="Português" [class.disabled]="language != 'pt-BR' && language != 'pt'">
+                                <img src="assets/images/BR.png" alt="Português">
+                            </a>
+                        </li>
+                        <li>
+                            <a (click)="setLanguage('en-US')" title="Inglês" [class.disabled]="language != 'en-US' && language != 'en'">
+                                <img src="assets/images/USA.png" alt="Inglês">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
 <router-outlet></router-outlet>

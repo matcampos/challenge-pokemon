@@ -8,11 +8,15 @@
                         <div class="tile is-vertical is-12">
                             <div class="tile">
                                 <div class="tile is-parent is-vertical">
-                                    <article class="tile is-child notification is-info" *ngFor="let attack of pokemon?.attacks">
+                                    <article class="tile is-child notification is-info"
+                                        *ngFor="let attack of pokemon?.attacks">
                                         <p class="title">{{attack.name}}</p>
-                                        <p class="subtitle">Custo de mana: {{attack.cost}}</p>
-                                        <p class="subtitle">Dano: {{attack.damage}}</p>
-                                        <p class="subtitle">Descrição: {{attack.text}}</p>
+                                        <p class="subtitle">{{'pokemonDetailsComponent.MANA_COST' | translate}}:
+                                            {{attack.cost}}</p>
+                                        <p class="subtitle">{{'pokemonDetailsComponent.DAMAGE' | translate}}:
+                                            {{attack.damage}}</p>
+                                        <p class="subtitle">{{'pokemonDetailsComponent.DESCRIPTION' | translate}}:
+                                            {{attack.text}}</p>
                                     </article>
                                 </div>
                             </div>

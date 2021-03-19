@@ -1,0 +1,20 @@
+.languages {
+    list-style: none;
+
+    li {
+        display: inline;
+        &:last-child {
+            margin-left: 10px;
+        }
+
+        a {
+            transition: opacity 0.3s ease-in-out;
+            &.disabled {
+                opacity: 0.6;
+            }
+            img {
+                width: 40px;
+            }
+        }
+    }
+}

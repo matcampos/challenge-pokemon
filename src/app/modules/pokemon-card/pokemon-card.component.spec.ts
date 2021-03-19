@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterModule } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
+import { TranslateModule } from '@ngx-translate/core';
 import { Pokemon } from 'src/app/models';
 
 import { PokemonCardComponent } from './pokemon-card.component';
@@ -12,7 +13,10 @@ describe('PokemonCardComponent', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [PokemonCardComponent],
-            imports: [RouterTestingModule]
+            imports: [
+                RouterTestingModule,
+                TranslateModule.forRoot()
+            ]
         })
             .compileComponents();
     }));
