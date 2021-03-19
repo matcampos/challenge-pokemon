@@ -2,7 +2,8 @@
     "pokemonsComponent": {
         "NAME": "Nome",
         "SEARCH_NAME": "Pesquise o pokemon pelo nome",
-        "POKEMON_TYPES_LABEL": "Tipos"
+        "POKEMON_TYPES_LABEL": "Tipos",
+        "NO_RESULTS_FOUND": "Nenhum resultado encontrado..."
     },
     "pokemonDetailsComponent": {
         "BREADCRUMB": "Detalhes",

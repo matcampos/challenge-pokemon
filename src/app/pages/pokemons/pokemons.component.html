@@ -31,6 +31,13 @@
                     </ngx-slick-carousel>
                 </div>
             </div>
+            <div class="columns" *ngIf="!loading && pokemons.length == 0">
+                <div class="column">
+                    <p class="error-message">
+                        {{'pokemonsComponent.NO_RESULTS_FOUND' | translate}}
+                    </p>
+                </div>
+            </div>
             <div class="columns loader-box" *ngIf="loading">
                 <div class="column is-6 is-offset-3">
                     <div class="loader-wrapper is-active" [class.is-active]="loading">
