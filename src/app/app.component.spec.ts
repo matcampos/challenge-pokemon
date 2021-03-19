@@ -21,4 +21,15 @@ describe('AppComponent', () => {
         const app = fixture.debugElement.componentInstance;
         expect(app).toBeTruthy();
     });
+
+    it('Change Language', () => {
+        const fixture = TestBed.createComponent(AppComponent);
+        const app = fixture.debugElement.componentInstance;
+
+        app.setLanguage('pt-BR');
+
+        fixture.detectChanges();
+
+        expect(app.language).toEqual('pt-BR');
+    });
 });
