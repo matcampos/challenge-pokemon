@@ -8,6 +8,8 @@ import { AppInterceptor } from './app.interceptor';
 import { ModalModule } from './modules/modal/modal.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpLoaderFactory } from 'src/app/utils/http-loader-factory';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
     declarations: [
@@ -25,7 +27,8 @@ import { HttpLoaderFactory } from 'src/app/utils/http-loader-factory';
                 useFactory: HttpLoaderFactory,
                 deps: [HttpClient]
             }
-        })
+        }),
+        ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
     ],
     providers: [
         {
