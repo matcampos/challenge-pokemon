@@ -5,12 +5,16 @@
                 <div class="column">
                     <ul class="languages is-pulled-right">
                         <li>
-                            <a (click)="setLanguage('pt-br')" [title]="'appComponent.PORTUGUESE_LANGUAGE' | translate" [class.disabled]="language != 'pt-br' && language != 'pt'" id="portugueseLanguage">
+                            <a (click)="setLanguage('pt-br')" width="40" height="40"
+                                [title]="'appComponent.PORTUGUESE_LANGUAGE' | translate"
+                                [class.disabled]="language != 'pt-br' && language != 'pt'" id="portugueseLanguage">
                                 <img src="assets/images/BR.png" [alt]="'appComponent.PORTUGUESE_LANGUAGE' | translate">
                             </a>
                         </li>
                         <li>
-                            <a (click)="setLanguage('en-us')" [title]="'appComponent.ENGLISH_LANGUAGE' | translate" [class.disabled]="language != 'en-us' && language != 'en'" id="englishLanguage">
+                            <a (click)="setLanguage('en-us')" width="40" height="40"
+                                [title]="'appComponent.ENGLISH_LANGUAGE' | translate"
+                                [class.disabled]="language != 'en-us' && language != 'en'" id="englishLanguage">
                                 <img src="assets/images/USA.png" [alt]="'appComponent.ENGLISH_LANGUAGE' | translate">
                             </a>
                         </li>
