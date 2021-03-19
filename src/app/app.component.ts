@@ -12,8 +12,12 @@ export class AppComponent {
     title = 'pokemon-challenge';
     language: string = '';
 
-    constructor() {
+    constructor(
+        private translate: TranslateService
+    ) {
         this.language = getLanguage();
+        this.translate.setDefaultLang('pt');
+        this.translate.use(this.language);
     }
 
     setLanguage(language: string) {
