@@ -9,7 +9,7 @@ describe('workspace-project Pokemons', () => {
         browser.waitForAngular();
     });
 
-    it('Should open attacks modal', async () => {
+    it('Should enter in the details page and open the attacks modal', async () => {
         page.navigateTo();
 
         expect(page.clickOnSeeAtacksButton()).toEqual(true);
