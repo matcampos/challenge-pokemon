@@ -19,7 +19,10 @@ Site: [Desafio Pokemon](http://challenge-pokemon.s3-website-us-east-1.amazonaws.
 
 ### Pré-requisitos
 
-Ter uma IDE instalada que suporte NodeJS, Angular instalado git para clonar o repositório
+* [nodeJS](https://nodejs.org/en/download/) - Plataforma de backend node js, é necessária pois o angular utiliza o seu gerenciador de pacotes.
+* [Angular](https://angular.io/) - Framework utilizado para a construção do SPA (Single Page Applucation).
+
+Ter uma IDE instalada que suporte NodeJS, Angular e git para clonar o repositório
 
 ``` 
 
