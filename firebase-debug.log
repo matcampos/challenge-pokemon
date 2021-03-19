@@ -1,0 +1,35 @@
+[debug] [2021-03-19T23:26:42.418Z] ----------------------------------------------------------------------
+[debug] [2021-03-19T23:26:42.420Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2021-03-19T23:26:42.421Z] CLI Version:   9.6.1
+[debug] [2021-03-19T23:26:42.421Z] Platform:      darwin
+[debug] [2021-03-19T23:26:42.421Z] Node Version:  v10.16.3
+[debug] [2021-03-19T23:26:42.421Z] Time:          Fri Mar 19 2021 20:26:42 GMT-0300 (Brasilia Standard Time)
+[debug] [2021-03-19T23:26:42.422Z] ----------------------------------------------------------------------
+[debug] [2021-03-19T23:26:42.422Z] 
+[debug] [2021-03-19T23:26:42.433Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-03-19T23:26:42.433Z] > authorizing via signed-in user
+[debug] [2021-03-19T23:26:42.433Z] [iam] checking project pokemon-challenge-3881d for permissions ["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]
+[debug] [2021-03-19T23:26:42.436Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/pokemon-challenge-3881d:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]}
+[debug] [2021-03-19T23:26:43.422Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 19 Mar 2021 23:26:44 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=792","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-19T23:26:43.426Z] > refreshing access token with scopes: []
+[debug] [2021-03-19T23:26:43.426Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-03-19T23:26:43.603Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","date":"Fri, 19 Mar 2021 23:26:45 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-19T23:26:43.623Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/pokemon-challenge-3881d [none]
+[debug] [2021-03-19T23:26:44.655Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/pokemon-challenge-3881d 200
+[debug] [2021-03-19T23:26:44.655Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/pokemon-challenge-3881d {"projectId":"pokemon-challenge-3881d","projectNumber":"172153583186","displayName":"Pokemon-challenge","name":"projects/pokemon-challenge-3881d","resources":{"hostingSite":"pokemon-challenge-3881d","realtimeDatabaseInstance":"pokemon-challenge-3881d-default-rtdb"},"state":"ACTIVE"}
+[debug] [2021-03-19T23:26:44.656Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/pokemon-challenge-3881d [none]
+[debug] [2021-03-19T23:26:45.162Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/pokemon-challenge-3881d 200
+[debug] [2021-03-19T23:26:45.162Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/pokemon-challenge-3881d {"projectId":"pokemon-challenge-3881d","projectNumber":"172153583186","displayName":"Pokemon-challenge","name":"projects/pokemon-challenge-3881d","resources":{"hostingSite":"pokemon-challenge-3881d","realtimeDatabaseInstance":"pokemon-challenge-3881d-default-rtdb"},"state":"ACTIVE"}
+[info] 
+[info] === Deploying to 'pokemon-challenge-3881d'...
+[info] 
+[info] i  deploying database, hosting 
+[info] i  database: checking rules syntax... 
+[debug] [2021-03-19T23:26:45.168Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-03-19T23:26:45.168Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-03-19T23:26:45.324Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","date":"Fri, 19 Mar 2021 23:26:46 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-19T23:26:45.340Z] >>> HTTP REQUEST GET https://firebasedatabase.googleapis.com/v1beta/projects/pokemon-challenge-3881d/locations/-/instances/pokemon-challenge-3881d-default-rtdb  
+ 
