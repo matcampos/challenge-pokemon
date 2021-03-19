@@ -91,13 +91,15 @@ As variáveis de ambiente estão localizadas nos arquivos localizados dentro do 
 
 * `production` - Quando true ele não exibe logs da aplicacão que não sejam de erro, além de realizar um build mais otimizado.
 * `API_URL` - Url da api, atualizar conforme for necessário.
+* `API_KEY` - Chave da api, atualizar conforme for necessário.
 
 * O arquivo [environment](src/environments/environment.ts) possui as configurações de desenvolvimento do projeto.
 
 ``` json
 {
     "production": false,
-    "API_URL": "https://api.pokemontcg.io/v2"
+    "API_URL": "https://api.pokemontcg.io/v2",
+    "API_KEY": "Chave da api"
 }
 ```
 
@@ -106,7 +108,8 @@ As variáveis de ambiente estão localizadas nos arquivos localizados dentro do 
 ``` json
 {
     "production": false,
-    "API_URL": "https://api.pokemontcg.io/v2"
+    "API_URL": "https://api.pokemontcg.io/v2",
+    "API_KEY": "Chave da api"
 }
 ```
 
