@@ -1,0 +1,26 @@
+{
+    "pokemonsComponent": {
+        "NAME": "Nome",
+        "SEARCH_NAME": "Pesquise o pokemon pelo nome",
+        "POKEMON_TYPES_LABEL": "Tipos"
+    },
+    "pokemonDetailsComponent": {
+        "BREADCRUMB": "Detalhes",
+        "POKEMON_NAME_LABEL": "Nome",
+        "POKEMON_ID_LABEL": "Id",
+        "POKEMON_TYPES_LABEL": "Tipos",
+        "POKEMON_RESISTANCES_LABEL": "Resistências",
+        "POKEMON_SEE_ATTACKS_BUTTON_TEXT": "Ver ataques",
+        "BACK_BUTTON": "Voltar",
+        "NO_RESISTANCE_REGISTERED": "Nenhuma resistência cadastrada...",
+        "NO_ATTACK_REGISTERED": "Nenhum ataque cadastrado...",
+        "NO_TYPE_REGISTERED": "Nenhum tipo cadastrado...",
+        "MANA_COST": "Custo de mana",
+        "DAMAGE": "Dano",
+        "DESCRIPTION": "Descrição"
+    },
+    "appComponent": {
+        "PORTUGUESE_LANGUAGE": "Português",
+        "ENGLISH_LANGUAGE": "Inglês"
+    }
+}

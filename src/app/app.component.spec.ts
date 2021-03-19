@@ -26,10 +26,10 @@ describe('AppComponent', () => {
         const fixture = TestBed.createComponent(AppComponent);
         const app = fixture.debugElement.componentInstance;
 
-        app.setLanguage('pt-BR');
+        app.setLanguage('pt-br');
 
         fixture.detectChanges();
 
-        expect(app.language).toEqual('pt-BR');
+        expect(app.language).toEqual('pt-br');
     });
 });
