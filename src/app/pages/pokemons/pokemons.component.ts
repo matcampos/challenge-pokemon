@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { fromEvent } from 'rxjs';
@@ -48,6 +48,14 @@ export class PokemonsComponent implements OnInit, AfterViewInit {
 
     ngAfterViewInit() {
         this.addSearchInputEventListener();
+    }
+
+    @HostListener('window:resize', ['$event']) onResize(event) {
+        if (event.target.innerWidth < 769) {
+            this.infiniteScrollDisabled = true;
+        } else {
+            this.infiniteScrollDisabled = false;
+        }
     }
 
     private setLanguage() {
