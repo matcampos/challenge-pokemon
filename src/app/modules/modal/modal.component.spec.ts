@@ -30,6 +30,7 @@ describe('ModalComponent', () => {
     });
 
     it('close modal', () => {
+        fixture.detectChanges();
         const modalCloseDiv = fixture.nativeElement.querySelector('.modal-background');
 
         const spy = spyOn(component, 'close');

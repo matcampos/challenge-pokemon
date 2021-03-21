@@ -61,12 +61,14 @@ describe('PokemonsComponent', () => {
     });
 
     it('Test add search input listener call', () => {
+        fixture.detectChanges();
         const spy = spyOn(component, 'addSearchInputEventListener');
         component.ngAfterViewInit();
         expect(spy).toHaveBeenCalled();
     });
 
     it('Test add search input listener call with search form value != name variable value', () => {
+        fixture.detectChanges();
 
         function generateKeyUpEvent(value: string): KeyboardEvent {
             const event: KeyboardEvent = new KeyboardEvent('keyup', { bubbles: true, cancelable: true });
@@ -86,6 +88,7 @@ describe('PokemonsComponent', () => {
     });
 
     it('Test add search input listener call with search form value equals "" and != of name variable value', () => {
+        fixture.detectChanges();
         function generateKeyUpEvent(value: string): KeyboardEvent {
             const event: KeyboardEvent = new KeyboardEvent('keyup', { bubbles: true, cancelable: true });
             Object.defineProperty(event, 'target', { value: { value } });
@@ -107,6 +110,7 @@ describe('PokemonsComponent', () => {
 
 
     it('SimulateScollEvent', () => {
+        fixture.detectChanges();
         const spy = spyOn(component, 'onScroll');
 
         component.onScroll();
@@ -115,9 +119,9 @@ describe('PokemonsComponent', () => {
     });
 
     it('test nextArrow', async () => {
-
+        fixture.detectChanges();
         component.ngAfterViewInit();
-        
+
         component.pokemons = [
             new Pokemon({
                 name: 'aaa',

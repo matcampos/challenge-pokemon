@@ -67,7 +67,8 @@ describe('PokemonDetailsComponent', () => {
 
 
     it('Test open modal', waitForAsync(async () => {
-
+        fixture.detectChanges();
+        
         const spy = spyOn(component, 'openModal');
 
         const result = await mockPokemonsService.getPokemonById('aaaa');
@@ -91,6 +92,7 @@ describe('PokemonDetailsComponent', () => {
     }));
 
     it('Test open error', waitForAsync(async () => {
+        fixture.detectChanges();
         TestBed.get(ActivatedRoute).queryParams = of({ id: 'bbb' });
 
         mockPokemonsServiceSpy.getPokemonById
