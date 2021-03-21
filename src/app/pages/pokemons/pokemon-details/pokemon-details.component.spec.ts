@@ -1,5 +1,5 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
@@ -14,7 +14,7 @@ describe('PokemonDetailsComponent', () => {
     let fixture: ComponentFixture<PokemonDetailsComponent>;
     let mockPokemonsService: jasmine.SpyObj<PokemonsService>;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
             declarations: [PokemonDetailsComponent],
             imports: [
@@ -65,7 +65,7 @@ describe('PokemonDetailsComponent', () => {
     });
 
 
-    it('Test open modal', async(async () => {
+    it('Test open modal', waitForAsync(async () => {
         const spy = spyOn(component, 'openModal');
 
         const result = await mockPokemonsService.getPokemonById('aaaa');

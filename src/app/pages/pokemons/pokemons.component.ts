@@ -14,7 +14,7 @@ import { getLanguage } from 'src/app/utils/get-browser-language';
     styleUrls: ['./pokemons.component.scss']
 })
 export class PokemonsComponent implements OnInit, AfterViewInit {
-    @ViewChild('searchInput', { static: false }) searchInput: ElementRef<HTMLInputElement>;
+    @ViewChild('searchInput') searchInput: ElementRef<HTMLInputElement>;
     pokemons: any[] = [];
     query: PokemonFilter = new PokemonFilter();
     searchForm: FormGroup;

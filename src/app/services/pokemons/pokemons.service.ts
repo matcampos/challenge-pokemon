@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { PokemonFilter, PokemonByIdResponse, PokemonResponseList } from 'src/app/models';
 import { environment } from 'src/environments/environment';
-import { stringify } from 'querystring';
+import stringify from 'src/app/utils/stringify';
 
 @Injectable({
     providedIn: 'root'

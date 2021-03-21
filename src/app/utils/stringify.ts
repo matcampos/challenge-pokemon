@@ -1,0 +1,1 @@
+export default (filter) => Object.keys(filter).map(key => key + '=' + filter[key]).join('&');
