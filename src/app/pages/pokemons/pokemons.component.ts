@@ -84,18 +84,16 @@ export class PokemonsComponent implements OnInit, AfterViewInit {
                 // End of validations
 
                 this.query.page = 1;
-                this.getPokemons(true);
+                this.pokemons = [];
+                this.getPokemons();
             }
         })
     }
 
-    private async getPokemons(newRequest: boolean = false) {
+    private async getPokemons() {
         this.loading = true;
 
         try {
-            if (newRequest) {
-                this.pokemons = [];
-            }
 
             const result = await this.pokemonsService.getPokemons(this.query);
             result.data.forEach(pokemon => {
