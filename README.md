@@ -20,7 +20,7 @@ Site: [Desafio Pokemon](http://challenge-pokemon.s3-website-us-east-1.amazonaws.
 ### Pré-requisitos
 
 * [nodeJS](https://nodejs.org/en/download/) - Plataforma de backend node js, é necessária pois o angular utiliza o seu gerenciador de pacotes.
-* [Angular](https://angular.io/) - Framework utilizado para a construção do SPA (Single Page Applucation).
+* [Angular](https://angular.io/) - Framework utilizado para a construção do SPA (Single Page Application).
 
 Ter uma IDE instalada que suporte NodeJS, Angular e git para clonar o repositório
 
