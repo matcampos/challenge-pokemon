@@ -13,6 +13,7 @@ describe('PokemonDetailsComponent', () => {
     let component: PokemonDetailsComponent;
     let fixture: ComponentFixture<PokemonDetailsComponent>;
     let mockPokemonsService: jasmine.SpyObj<PokemonsService>;
+    let mockPokemonsServiceSpy = jasmine.createSpyObj<PokemonsService>('PokemonsService', ['getPokemonById']);
 
     beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
@@ -24,7 +25,7 @@ describe('PokemonDetailsComponent', () => {
             ],
             providers: [{
                 provide: PokemonsService,
-                useValue: jasmine.createSpyObj<PokemonsService>('PokemonsService', ['getPokemonById'])
+                useValue: mockPokemonsServiceSpy
             },
             {
                 provide: ActivatedRoute,
@@ -51,7 +52,7 @@ describe('PokemonDetailsComponent', () => {
                     )
                 })
             }
-        ))))
+        ))));
     }));
 
     beforeEach(() => {
@@ -66,6 +67,7 @@ describe('PokemonDetailsComponent', () => {
 
 
     it('Test open modal', waitForAsync(async () => {
+
         const spy = spyOn(component, 'openModal');
 
         const result = await mockPokemonsService.getPokemonById('aaaa');
@@ -82,9 +84,22 @@ describe('PokemonDetailsComponent', () => {
 
         let button = fixture.debugElement.nativeElement.querySelector('#openModalButton');
         button.click();
-        
+
         fixture.detectChanges();
 
         expect(spy).toHaveBeenCalled();
+    }));
+
+    it('Test open error', waitForAsync(async () => {
+        TestBed.get(ActivatedRoute).queryParams = of({ id: 'bbb' });
+
+        mockPokemonsServiceSpy.getPokemonById
+            .withArgs('bbb').and.returnValue(new Promise((_, reject) => reject({
+                status: 404
+            })))
+
+        expectAsync(mockPokemonsService.getPokemonById('bbb')).toBeRejectedWith({
+            status: 404
+        })
     }));
 });

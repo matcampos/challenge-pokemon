@@ -135,7 +135,9 @@
                         ],
                         "codeCoverageExclude": [
                             "src/app/models/**/*.ts",
-                            "src/app/services/**/*.ts"
+                            "src/app/services/**/*.ts",
+                            "src/app/utils/http-loader-factory.ts",
+                            "src/app/utils/stringify.ts"
                         ]
                     }
                 },

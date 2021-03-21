@@ -17,19 +17,43 @@ describe('AppComponent', () => {
     }));
 
     it('should create the app', () => {
+        localStorage.clear();
         const fixture = TestBed.createComponent(AppComponent);
         const app = fixture.debugElement.componentInstance;
         expect(app).toBeTruthy();
     });
 
     it('Change Language', () => {
+        localStorage.clear();
+        Object.defineProperty(navigator, 'language', {
+            get: function () { return 'en'; },
+            configurable: true
+        });
         const fixture = TestBed.createComponent(AppComponent);
         const app = fixture.debugElement.componentInstance;
 
-        app.setLanguage('pt-br');
+        app.setLanguage('pt');
 
         fixture.detectChanges();
 
-        expect(app.language).toEqual('pt-br');
+        expect(app.language).toEqual('pt');
+    });
+
+
+    it('Change Language to en', () => {
+        localStorage.clear();
+        Object.defineProperty(navigator, 'language', {
+            get: function () { return 'pt'; },
+            configurable: true
+        });
+
+        const fixture = TestBed.createComponent(AppComponent);
+        const app = fixture.debugElement.componentInstance;
+
+        app.setLanguage('en');
+
+        fixture.detectChanges();
+
+        expect(app.language).toEqual('en');
     });
 });
