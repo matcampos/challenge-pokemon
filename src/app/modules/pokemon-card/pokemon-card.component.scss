@@ -2,7 +2,7 @@
 
 .card {
     height: 100%;
-    box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 40%), 0 0px 0 1px rgb(10 10 10 / 20%);
+    box-shadow: 0 0.5em 1em -0.125em $box-shadow, 0 0px 0 1px $box-shadow;
     transition: transform 0.3s ease-in-out;
     border-radius: 15px;
 
