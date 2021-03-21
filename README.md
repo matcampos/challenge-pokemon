@@ -31,14 +31,14 @@ Ter uma IDE instalada que suporte NodeJS, Angular e git para clonar o repositór
 
 ### Instalação
 
- Execute o comando abaixo na pasta `/` para baixar os pacotes necessários para realizar o build do projeto
+ Execute o comando abaixo na pasta raiz do projeto para baixar os pacotes necessários para realizar o build/serve do projeto.
 
 ``` 
 
     npm i
 ```
 
-Para executar o servidor local a fim de utilizar o projeto execute o comando:
+Para executar o servidor local a fim de utilizar o projeto em modo desenvolvimento execute o comando:
 
 ``` 
 
@@ -54,9 +54,7 @@ Para rodar o build execute o comando:
     ng build
 ```
 
-Para rodar o build apontando para produção execute o comando:
-
-    
+Para rodar o build apontando para ambiente de produção execute o comando:
 
 ``` 
 
@@ -128,7 +126,7 @@ Exemplo: `npm run build` , este comando irá executar a instrucão no seu termin
 * `npm start` ( `ng serve` ) - Roda o projeto localmente, utilizado para fins de desenvolvimento.
 * `npm run build` ( `ng build` ) - Gera um build da aplicação apontando para o ambiente de desenvolvimento.
 * `npm run build:prod` ( `ng build --prod` ) - Gera um build da aplicação apontando para o ambiente de produção.
-* `npm run test` (`ng test`) - Executa os testes unitários da aplicação.
+* `npm run test` (`ng test`) - Executa os testes unitários da aplicação, se utilizar a flag --code-coverage ele irá criar a pasta coverage com um relatório com o resultado dos testes unitários realizados.
 * `npm run lint` (`ng lint`) - Aponta os erros de formatação da aplicação.
 * `npm run e2e` (`ng e2e`) - Executa os teste end-to-end da aplicação.
 

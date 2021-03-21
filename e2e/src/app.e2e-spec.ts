@@ -8,12 +8,12 @@ describe('workspace-project App', () => {
                 page = new AppPage();
         });
 
-        it ('should change language to portuguese', () => {
+        it ('Should change language to portuguese', () => {
             page.navigateTo();
             expect(page.changeLanguage('portugueseLanguage')).toEqual('Português');
         });
 
-        it ('should change language to english', () => {
+        it ('Should change language to english', () => {
             page.navigateTo();
             expect(page.changeLanguage('englishLanguage')).toEqual('English');
         })
