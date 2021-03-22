@@ -62,6 +62,17 @@
                     </div>
                     <div class="tile is-parent is-full">
                         <article class="tile is-child notification is-white">
+                            <p class="title">{{'pokemonDetailsComponent.POKEMON_WEAKNESSES_LABEL' | translate}}</p>
+                            <p class="sub-title" *ngIf="pokemon?.weaknesses?.length == 0">
+                                {{'pokemonDetailsComponent.NO_WEAKNESSES_REGISTERED' | translate}}</p>
+                            <div class="tags are-medium">
+                                <span class="tag is-success"
+                                    *ngFor="let weakness of pokemon?.weaknesses">{{weakness.type}}</span>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="tile is-parent is-full">
+                        <article class="tile is-child notification is-white">
                             <a class="button is-info is-medium" id="openModalButton"
                                 [class.disabled]="pokemon?.attacks?.length == 0"
                                 [title]="'pokemonDetailsComponent.POKEMON_SEE_ATTACKS_BUTTON_TEXT' | translate"
