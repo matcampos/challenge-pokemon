@@ -4,6 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { ButtonModel, ErrorModel, Pokemon } from 'src/app/models';
 import { PokemonsService } from 'src/app/services';
 import { ModalService } from 'src/app/services';
+import { EventEmitterHelper } from 'src/app/utils/event-emitter';
 import { getLanguage } from 'src/app/utils/get-browser-language';
 
 @Component({
@@ -31,6 +32,10 @@ export class PokemonDetailsComponent implements OnInit {
             this.getPokemon(params.id)
         });
         this.setLanguage();
+        
+        EventEmitterHelper.get('language').subscribe(() => {
+            this.setLanguage();
+        });
     }
 
     ngOnInit() {
