@@ -15,7 +15,7 @@ import { getLanguage } from 'src/app/utils/get-browser-language';
 })
 export class PokemonsComponent implements OnInit, AfterViewInit {
     @ViewChild('searchInput') searchInput: ElementRef<HTMLInputElement>;
-    pokemons: any[] = [];
+    pokemons: Pokemon[] = [];
     query: PokemonFilter = new PokemonFilter();
     searchForm: FormGroup;
     name: string = '';
