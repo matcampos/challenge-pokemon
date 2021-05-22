@@ -8,11 +8,11 @@ export class Pokemon {
     attacks: Attacks[] = [];
 
     constructor(init?: Partial<Pokemon>) {
-        Object.keys(init).forEach(key => {
-            if (!init[key] || init[key] == null || init[key] == '') {
+        Object.keys(init).forEach((key) => {
+            if (!init[key] || init[key] == null || init[key] == "") {
                 delete init[key];
             }
-        })
+        });
         Object.assign(this, init);
     }
 }
@@ -21,7 +21,7 @@ export class PokemonFilter {
     q: string;
     page: number = 1;
     pageSize: number = 16;
-    orderBy: string = 'name';
+    orderBy: string = "name";
 
     constructor(init?: Partial<PokemonFilter>) {
         Object.assign(this, init);
@@ -30,7 +30,6 @@ export class PokemonFilter {
 
 export class PokemonByIdResponse {
     data: PokemonResponse;
-
 
     constructor(init?: Partial<PokemonByIdResponse>) {
         Object.assign(this, init);
@@ -95,7 +94,6 @@ export class Weaks {
     }
 }
 
-
 export class Resistances {
     type: string;
     value: string;
@@ -115,11 +113,7 @@ export class Set {
     ptcgoCode: string;
     releaseDate: Date;
     updatedAt: Date;
-    images: {
-        "symbol": "https://images.pokemontcg.io/pl1/symbol.png",
-        "logo": "https://images.pokemontcg.io/pl1/logo.png"
-    }
-
+    images: Image;
     constructor(init?: Partial<Set>) {
         Object.assign(this, init);
     }
@@ -135,7 +129,7 @@ export class Legality {
 
 export class Image {
     symbol: string;
-    logo: string
+    logo: string;
 
     constructor(init?: Partial<Image>) {
         Object.assign(this, init);
@@ -144,7 +138,7 @@ export class Image {
 
 export class PokemonImage {
     small: string;
-    large: string
+    large: string;
 
     constructor(init?: Partial<PokemonImage>) {
         Object.assign(this, init);
